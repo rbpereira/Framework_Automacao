@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="specFlow" type="TechTalk.SpecFlow.Configuration.ConfigurationSectionHandler, TechTalk.SpecFlow" />
+  </configSections>
+  <specFlow>
+    <language feature="pt-BR" />
+    
+    <!--<unitTestProvider name="NUnit" />-->
+    <!-- For additional details on SpecFlow configuration options see http://go.specflow.org/doc-config -->
+    <plugins>
+
+      <add name="SpecFlow.Plus.Excel" type="Generator" />
+      
+    <add name="SpecRun" /></plugins>
+    <!-- For additional details on SpecFlow configuration options see http://go.specflow.org/doc-config -->
+    
+    <!-- For additional details on SpecFlow configuration options see http://go.specflow.org/doc-config --><!-- use unit test provider SpecRun+NUnit or SpecRun+MsTest for being able to execute the tests with SpecRun and another provider --><unitTestProvider name="SpecRun" />
+  </specFlow>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.ValueTuple" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.3.0" newVersion="4.0.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="TechTalk.SpecFlow" publicKeyToken="0778194805d6db41" />
+        <bindingRedirect oldVersion="0.0.0.0-2.3.2.0" newVersion="2.3.2.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.IO.Compression" publicKeyToken="b77a5c561934e089" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Runtime.InteropServices.RuntimeInformation" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.0.2.0" newVersion="4.0.2.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+
+  <appSettings>
+    <add key="seleniumBaseUrl" value="http://desenv.reembolso.prodesp.sp.gov.br/" />
+    <add key="seleniumBaseUrl" value="http://localhost:4200/" />
+    <add key="browser" value="" />
+    <add key="seleniumHub" value="http://10.200.142.201:4444/wd/hub" />
+    <add key="browser" value="Chrome" />
+    <add key="UrlHomolog" value="http://desenv.reembolso.prodesp.sp.gov.br/" />
+    <add key="Urlprod" value="http://desenv.reembolso.prodesp.sp.gov.br/" />
+
+    <add key="Ambiente" value="Local" />
+    <!-- Remoto ou Local !-->
+
+    <!-- Local onde os prints serão armazenados. !-->
+    <add key="EnderecoPrint" value="C:\Robert\POC\FrameWorkAutomacao\Framework\TestResults\Prints" />
+    <add key="Comprovante" value="C:\Users\40049906\Desktop\Print\IconeExcluir.Jpg" />
+
+    <!-- Logins Solicitante-->
+    <add key="LoginSolicitante" value="156541" />
+    <add key="SenhaSolicitante" value="prodesp@123" />
+
+    <!-- Logins Coordenador-->
+    <add key="LoginCoordenador" value="157806" />
+    <add key="SenhaCoordenador" value="prodesp@123" />
+
+    <!-- Logins Aprovador-->
+    <add key="LoginAprovador" value="103550" />
+    <add key="SenhaAprovador" value="prodesp@123" />
+
+    <!-- Logins Solicitante-->
+    <add key="LoginSecretaria" value="admin" />
+    <add key="SenhaSecretaria" value="prodesp@123" />
+
+    <!-- Logins Financeiro-->
+    <add key="LoginFinanceiro" value="138290" />
+    <add key="SenhaFinanceiro" value="prodesp@123" />
+  </appSettings>
+</configuration>

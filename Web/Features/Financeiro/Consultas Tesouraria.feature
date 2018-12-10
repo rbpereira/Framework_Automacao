@@ -1,0 +1,1 @@
+﻿Funcionalidade: Consultas Tesouraria

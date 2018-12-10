@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SpecRun.Runner.1.8.5\build\SpecRun.Runner.props" Condition="Exists('..\packages\SpecRun.Runner.1.8.5\build\SpecRun.Runner.props')" />
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26E3D2A9-8D89-49A9-9193-2B29571F257F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Plus.Excel.2-3-0.1.7.3\lib\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Plus.Excel.2-3-0.1.7.3\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Gherkin, Version=5.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Plus.Excel.2-3-0.1.7.3\lib\Gherkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.15.9.20\lib\net46\Microsoft.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Framework.15.9.20\lib\net46\Microsoft.Build.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Setup.Configuration.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.1.16.30\lib\net35\Microsoft.VisualStudio.Setup.Configuration.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriverBackedSelenium.3.141.0\lib\net45\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Plus.Excel, Version=1.7.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Plus.Excel.2-3-0.1.7.3\lib\SpecFlow.Plus.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Plus.Excel.SpecFlowPlugin, Version=1.7.3.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Plus.Excel.2-3-0.1.7.3\lib\SpecFlow.Plus.Excel.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.3.2.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.2.3.2\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="TechTalk.SpecRun, Version=1.8.0.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\lib\net45\TechTalk.SpecRun.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecRun.Common, Version=1.8.0.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\lib\net45\TechTalk.SpecRun.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comum\Enumeradores.cs" />
+    <Compile Include="Comum\Funcionalidades.cs" />
+    <Compile Include="Comum\FuncoesAplicacao.cs" />
+    <Compile Include="Comum\GeradorCpfCnpj.cs" />
+    <Compile Include="Comum\GerarNumeros.cs" />
+    <Compile Include="Comum\Hooks.cs" />
+    <Compile Include="Comum\Listas.cs" />
+    <Compile Include="Features\Aprovador\Aprovar Reembolso.feature.cs" />
+    <Compile Include="Features\Aprovador\Aprovar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Aprovar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Aprovador\Consultar Reembolso.feature.cs" />
+    <Compile Include="Features\Aprovador\Consultar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Aprovador\Designar Responsavel.feature.cs" />
+    <Compile Include="Features\Aprovador\Designar Responsavel1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Designar Responsavel.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Aprovador\Devolver Reembolso.feature.cs" />
+    <Compile Include="Features\Aprovador\Devolver Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Devolver Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Aprovador\Reprovar Reembolso.feature.cs" />
+    <Compile Include="Features\Aprovador\Reprovar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reprovar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Comum\Buscar Solicitações.feature.cs" />
+    <Compile Include="Features\Comum\Buscar Solicitações1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Buscar Solicitações.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Comum\Esqueci Minha Senha.feature.cs" />
+    <Compile Include="Features\Comum\Esqueci Minha Senha1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Esqueci Minha Senha.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Comum\Login.feature.cs" />
+    <Compile Include="Features\Comum\Login1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Comum\Logoff.feature.cs" />
+    <Compile Include="Features\Comum\Logoff1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logoff.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Comum\Validacao de Perfil.feature.cs" />
+    <Compile Include="Features\Comum\Validacao de Perfil1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validacao de Perfil.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Coordenador\Verificar Solicitação.feature.cs" />
+    <Compile Include="Features\Coordenador\Verificar Solicitação1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Verificar Solicitação.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Consultar Lote BB.feature.cs" />
+    <Compile Include="Features\Financeiro\Consultar Lote BB1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultar Lote BB.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Consultar Lote ERP.feature.cs" />
+    <Compile Include="Features\Financeiro\Consultar Lote ERP1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultar Lote ERP.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Consultas Tesouraria.feature.cs" />
+    <Compile Include="Features\Financeiro\Consultas Tesouraria1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Consultas Tesouraria.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Devolver Solicitação.feature.cs" />
+    <Compile Include="Features\Financeiro\Devolver Solicitação1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Devolver Solicitação.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Gerar Lote BB.feature.cs" />
+    <Compile Include="Features\Financeiro\Gerar Lote BB1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gerar Lote BB.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Gerar Lote ERP.feature.cs" />
+    <Compile Include="Features\Financeiro\Gerar Lote ERP1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gerar Lote ERP.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Informar Pagamento.feature.cs" />
+    <Compile Include="Features\Financeiro\Informar Pagamento1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Informar Pagamento.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Financeiro\Validar Solicitação.feature.cs" />
+    <Compile Include="Features\Financeiro\Validar Solicitação1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validar Solicitação.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Solicitante\Cancelar Reembolso.feature.cs" />
+    <Compile Include="Features\Solicitante\Cancelar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cancelar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Solicitante\Configuração de perfil.feature.cs" />
+    <Compile Include="Features\Solicitante\Configuração de perfil1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Configuração de perfil.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Solicitante\Editar Reembolso.feature.cs" />
+    <Compile Include="Features\Solicitante\Editar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Editar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Solicitante\Excluir Solicitacao.feature.cs" />
+    <Compile Include="Features\Solicitante\Excluir Solicitacao1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Excluir Solicitacao.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Solicitante\Solicitar Reembolso.feature.cs" />
+    <Compile Include="Features\Solicitante\Solicitar Reembolso1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Solicitar Reembolso.feature</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="PageObject\AprovarReembolsoPage.cs" />
+    <Compile Include="PageObject\BuscarReembolsoPage.cs" />
+    <Compile Include="PageObject\DesignarResponsavelPage.cs" />
+    <Compile Include="PageObject\EsqueciMinhaSenhaPage.cs" />
+    <Compile Include="PageObject\LoginPage.cs" />
+    <Compile Include="PageObject\MenuPage.cs" />
+    <Compile Include="PageObject\MeusReembolsosPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaEstacionamentoPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaMetroTremPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaOnibusPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaPedagio.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaTaxiPage.cs" />
+    <Compile Include="PageObject\ModalAdicionarDespesaVeiculoProprioPage.cs" />
+    <Compile Include="PageObject\Paginas.cs" />
+    <Compile Include="PageObject\SolicitarReembolsoPage.cs" />
+    <Compile Include="PageObject\ValidarReembolsoPage.cs" />
+    <Compile Include="PageObject\VerificarReembolsoPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AprovarReembolsoSteps.cs" />
+    <Compile Include="Steps\EditarReembolsoSteps.cs" />
+    <Compile Include="Steps\EsqueciMinhaSenhaSteps.cs" />
+    <Compile Include="Steps\ExcluirSolicitacaoSteps.cs" />
+    <Compile Include="Steps\LoginSteps.cs" />
+    <Compile Include="Steps\LogoffSteps.cs" />
+    <Compile Include="Steps\SolicitarReembolsoSteps.cs" />
+    <Compile Include="Steps\ValidarReembolsoSteps.cs" />
+    <Compile Include="Steps\VerificarReembolsoSteps.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Default.srprofile" />
+    <None Include="Features\Aprovador\Aprovar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Aprovar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Aprovador\Consultar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Consultar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Aprovador\Designar Responsavel.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Designar Responsavel1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Aprovador\Devolver Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Devolver Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Aprovador\Reprovar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reprovar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Comum\Buscar Solicitações.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Buscar Solicitações1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Comum\Esqueci Minha Senha.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Esqueci Minha Senha1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Comum\Login.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Login1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Comum\Logoff.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Logoff1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Comum\Validacao de Perfil.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Validacao de Perfil1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Coordenador\Verificar Solicitação.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Verificar Solicitação1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Consultar Lote BB.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Consultar Lote BB1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Consultar Lote ERP.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Consultar Lote ERP1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Consultas Tesouraria.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Consultas Tesouraria1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Devolver Solicitação.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Devolver Solicitação1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Gerar Lote BB.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Gerar Lote BB1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Gerar Lote ERP.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Gerar Lote ERP1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Informar Pagamento.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Informar Pagamento1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Financeiro\Validar Solicitação.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Validar Solicitação1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\MassaDeDados.xlsx" />
+    <None Include="Features\Solicitante\Cancelar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Cancelar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Solicitante\Configuração de perfil.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Configuração de perfil1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Solicitante\Editar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Editar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Solicitante\Excluir Solicitacao.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Excluir Solicitacao1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Solicitante\Solicitar Reembolso.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Solicitar Reembolso1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="MassaDeDados\MassaDeDados.xlsx" />
+    <None Include="MassaDeDados\~%24MassaDeDados.xlsx" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Web.csproj.CopyComplete" />
+    <None Include="obj\Debug\Web.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Web.csprojAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="runtests.cmd" />
+    <None Include="SpecRunTestProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SpecRunTestProfile_2011_09.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\Web.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Web.dll" />
+    <Content Include="obj\Debug\Web.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="strDataHora\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.11.2\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.22.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.22.0\build\Selenium.Firefox.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.InternetExplorer.WebDriver.3.14\build\Selenium.InternetExplorer.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.InternetExplorer.WebDriver.3.14\build\Selenium.InternetExplorer.WebDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.44.0\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.2.44.0\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.IEDriver.3.141.0\build\Selenium.WebDriver.IEDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.IEDriver.3.141.0\build\Selenium.WebDriver.IEDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.3.2\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecRun.Runner.1.8.5\build\SpecRun.Runner.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.Runner.1.8.5\build\SpecRun.Runner.props'))" />
+    <Error Condition="!Exists('..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\build\SpecRun.SpecFlow.2-3-0.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\build\SpecRun.SpecFlow.2-3-0.targets'))" />
+  </Target>
+  <Import Project="..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.43\build\Selenium.Chrome.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.22.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.22.0\build\Selenium.Firefox.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.InternetExplorer.WebDriver.3.14\build\Selenium.InternetExplorer.WebDriver.targets" Condition="Exists('..\packages\Selenium.InternetExplorer.WebDriver.3.14\build\Selenium.InternetExplorer.WebDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.44.0\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.44.0\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.IEDriver.3.141.0\build\Selenium.WebDriver.IEDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.IEDriver.3.141.0\build\Selenium.WebDriver.IEDriver.targets')" />
+  <Import Project="..\packages\SpecFlow.2.3.2\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.3.2\build\SpecFlow.targets')" />
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.2.3.2\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
+  <Import Project="..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\build\SpecRun.SpecFlow.2-3-0.targets" Condition="Exists('..\packages\SpecRun.SpecFlow.2-3-0.1.8.5\build\SpecRun.SpecFlow.2-3-0.targets')" />
+</Project>

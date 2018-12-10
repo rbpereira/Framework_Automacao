@@ -1,0 +1,1 @@
+﻿Funcionalidade: Consultar Lote BB
